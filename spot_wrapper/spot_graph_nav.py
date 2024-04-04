@@ -95,7 +95,7 @@ class SpotGraphNav:
         self._powered_on = self._started_powered_on
 
         # Claim lease, power on robot, start graphnav.
-        self._lease = self._get_lease()
+        self._lease = self._lease_client.take()
         self._lease_keepalive = LeaseKeepAlive(self._lease_client)
         if upload_filepath:
             self.clear_graph()
